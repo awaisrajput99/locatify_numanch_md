@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "39644027924",
+    "project_id": "md-locatify-8fd9e",
+    "storage_bucket": "md-locatify-8fd9e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:39644027924:android:6bc38060ff0b3c46089b01",
+        "android_client_info": {
+          "package_name": "com.numanch.locatify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "39644027924-m9jh5fqsu3d820vkgbusnfrp1oon7itu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.numanch.locatify",
+            "certificate_hash": "38480bf17139d4679b92d0dec0dc9e3cfa4cf766"
+          }
+        },
+        {
+          "client_id": "39644027924-cc2ikqjqfm62gkah4j2ggj2gbsn46an0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVHWRjUOan8ZGPERbDULHYa2mo_MnEtmA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "39644027924-cc2ikqjqfm62gkah4j2ggj2gbsn46an0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "39644027924-k44d5t6ogjieft727up8dgeir2mkicr7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.numanch.locatify"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
