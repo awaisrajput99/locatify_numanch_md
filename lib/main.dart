@@ -5,8 +5,9 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:locatify/firebase_options.dart';
 import 'package:locatify/src/features/Dashboard/Dashboard_content/dashboard_content.dart';
 import 'package:locatify/src/features/Dashboard/Notifications/notification_screen.dart';
-import 'package:locatify/src/features/Dashboard/finder/document_upload/document_upload_screen.dart';
-import 'package:locatify/src/features/Dashboard/finder/person_upload/person_upload_screen.dart';
+import 'package:locatify/src/features/Dashboard/founder/document_upload/document_upload_screen.dart';
+import 'package:locatify/src/features/Dashboard/founder/person_upload/person_upload_screen.dart';
+import 'package:locatify/src/features/Dashboard/profile/update_user_profile.dart';
 import 'package:locatify/src/features/Dashboard/seeker/document_search/document_search_screen.dart';
 import 'package:locatify/src/features/Dashboard/seeker/person_search/person_search_screen.dart';
 import 'package:locatify/src/features/authentication/screens/forget_password/forget_password_mail/forget_password_mail_screen.dart';
@@ -54,6 +55,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/personUpload', page: () => const PersonUploadScreen()),
         GetPage(name: '/documentSearch', page: () => const DocumentSearchScreen()),
         GetPage(name: '/documentUpload', page: () => const DocumentUpload()),
+        GetPage(name: '/updateUserProfile', page: ()=> const UpdateUserProfile())
 
 
 

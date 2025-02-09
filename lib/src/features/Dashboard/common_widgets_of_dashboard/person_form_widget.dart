@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../controllers/age_dropdown_controller.dart';
 import '../controllers/dropdown_controller_person.dart';
 import '../controllers/image_picker_controller.dart';
-import '../finder/person_upload/drop_down_widget_person.dart';
+import '../founder/person_upload/drop_down_widget_person.dart';
 import '../seeker/person_search/dropdown_age_selector.dart';
 import 'image_picker_field_widget.dart';
 

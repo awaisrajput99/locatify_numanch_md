@@ -50,7 +50,7 @@ class FinderSeekerSelectorWidget extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             const Text(
-              "Finder",
+              "Founder",
               style: TextStyle(fontSize: 20),
             ),
           ],

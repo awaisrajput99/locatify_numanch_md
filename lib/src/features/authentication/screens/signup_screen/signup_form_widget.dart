@@ -51,7 +51,7 @@ class SignupFormWidget extends StatelessWidget {
               ),
               TextFormField(
                 controller: controller.phone,
-                keyboardType: TextInputType.phone,
+                keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.numbers_outlined),
                   labelText: "Phone Number",

@@ -13,10 +13,8 @@ class DashboardContent extends StatelessWidget {
     final controller = Get.put(DashboardController());
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         automaticallyImplyLeading: false,
-        leading: IconButton(onPressed: (){
-          AuthenticationRepository.instance.logoutUser();
-        }, icon: const Icon(Icons.logout_rounded)),
         actions: [
           IconButton(
             onPressed: () => Get.toNamed('/notifications'),

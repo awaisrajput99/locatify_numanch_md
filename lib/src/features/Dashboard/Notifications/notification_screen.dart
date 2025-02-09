@@ -10,7 +10,7 @@ class NotificationScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           // automaticallyImplyLeading: false,
-
+          centerTitle: true,
           backgroundColor: MdAppColors.mdPrimaryColor,
           title: const Text(
             "Notifications",

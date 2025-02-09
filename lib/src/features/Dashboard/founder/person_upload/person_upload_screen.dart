@@ -27,6 +27,7 @@ class PersonUploadScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: true,
+        centerTitle: true,
         backgroundColor: MdAppColors.mdPrimaryColor,
         title: const Text(
           "LOCATIFY",
