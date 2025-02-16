@@ -1,6 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:locatify/src/repositey/authentication_repositery/authentication_repositery.dart';
+import 'package:locatify/src/repositey/user_repository/user_repository.dart';
+
+import '../models/user_model.dart';
 
 class MdSignupController extends GetxController {
   static MdSignupController get instance => Get.find();
@@ -11,6 +15,8 @@ class MdSignupController extends GetxController {
   final password = TextEditingController();
   final phone = TextEditingController();
   final confirmPassword = TextEditingController();
+
+  final userRepo = Get.put(UserRepository());
 
   // Validation methods for each field
   String? validateFullName(String? value) {
@@ -93,10 +99,35 @@ class MdSignupController extends GetxController {
   }
 
   // Method to handle user registration
-  void registerUser(String email, String password, BuildContext context) {
-    AuthenticationRepository.instance
-        .createUserWithEmailAndPassword(email, password, context);
+  void registerUser(String email, String password, BuildContext context) async {
+    try {
+      UserCredential userCredential = await AuthenticationRepository.instance
+          .createUserWithEmailAndPassword(email, password, context);
+
+      if (userCredential.user != null) {
+        final user = MdUserModel(
+          id: userCredential.user!.uid,
+          FullName: fullName.text.trim(),
+          email: email,
+          phoneNumber: phone.text.trim(),
+          password: password.trim(),
+          about: 'feeling happy',
+          created_at: DateTime.now().toString(),
+          last_active: DateTime.now().toString(),
+          is_online: true,
+          image: "haohogh",
+          push_token: "hahohoh",
+        );
+
+        await createUser(user); // Ensure this runs only after successful auth
+      }
+    } catch (e) {
+      print("Error during registration: $e");
+    }
   }
 
+  Future<void> createUser( MdUserModel user) async {
+  await userRepo.createUser(user);
+  }
 
 }

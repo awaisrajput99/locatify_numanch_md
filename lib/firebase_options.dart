@@ -63,6 +63,9 @@ class DefaultFirebaseOptions {
     messagingSenderId: '39644027924',
     projectId: 'md-locatify-8fd9e',
     storageBucket: 'md-locatify-8fd9e.firebasestorage.app',
+    androidClientId: '39644027924-m9jh5fqsu3d820vkgbusnfrp1oon7itu.apps.googleusercontent.com',
+    iosClientId: '39644027924-k44d5t6ogjieft727up8dgeir2mkicr7.apps.googleusercontent.com',
     iosBundleId: 'com.numanch.locatify',
   );
+
 }

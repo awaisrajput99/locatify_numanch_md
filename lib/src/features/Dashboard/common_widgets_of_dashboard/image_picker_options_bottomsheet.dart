@@ -1,50 +1,45 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controllers/image_picker_controller.dart';
 
-class ImagePickerOptionsBottomSheet{
-  static void showImagePickerOptions(BuildContext context, ImagePickerController controller) {
-    Get.bottomSheet(
-      Container(
-        padding: const EdgeInsets.all(16),
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(16),
-            topRight: Radius.circular(16),
-          ),
-        ),
-        child: Column(
+class ImagePickerOptionsBottomSheet {
+  static Future<File?> showImagePickerOptions(
+      BuildContext context, ImagePickerController controller) async {
+    return await showModalBottomSheet<File?>(
+      context: context,
+      builder: (context) {
+        return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             ListTile(
               leading: const Icon(Icons.camera),
               title: const Text('Pick from Camera'),
-              onTap: () {
-                Get.back(); // Close the bottom sheet
-                controller.pickImageFromCamera();
+              onTap: () async {
+                File? image = await controller.pickImageFromCamera();
+                Get.back(result: image); // Close bottom sheet and return image
               },
             ),
             ListTile(
               leading: const Icon(Icons.photo),
               title: const Text('Pick from Gallery'),
-              onTap: () {
-                Get.back(); // Close the bottom sheet
-                controller.pickImageFromGallery();
+              onTap: () async {
+                File? image = await controller.pickImageFromGallery();
+                Get.back(result: image); // Close bottom sheet and return image
               },
             ),
             ListTile(
               leading: const Icon(Icons.close),
               title: const Text('Cancel'),
               onTap: () {
-                Get.back(); // Close the bottom sheet
+                Get.back(result: null); // Close the bottom sheet with no selection
               },
             ),
           ],
-        ),
-      ),
+        );
+      },
     );
   }
 }

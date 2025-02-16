@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:locatify/src/features/authentication/controllers/signup_controller.dart';
+import 'package:locatify/src/features/authentication/models/user_model.dart';
 
 import '../../controllers/phone_auth_controller.dart';
 
@@ -15,7 +16,6 @@ class SignupFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final controller = Get.put(MdSignupController());
     final _formKey = GlobalKey<FormState>();
 
@@ -91,7 +91,7 @@ class SignupFormWidget extends StatelessWidget {
                         MdSignupController.instance.registerUser(
                             controller.email.text.trim(),
                             controller.password.text.trim(),
-                        context
+                            context
                         );
                       }
                     },

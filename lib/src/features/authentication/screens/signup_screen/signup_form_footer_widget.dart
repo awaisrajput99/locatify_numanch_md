@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:locatify/src/features/authentication/controllers/google_authentication_controller.dart';
 
+import '../../../../constants/colors.dart';
 import '../../../../constants/image_strings.dart';
 class SignupFormFooter extends StatelessWidget {
   const SignupFormFooter({
@@ -12,27 +14,42 @@ class SignupFormFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(GoogleAuthenticationController());
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const Text("OR",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
         SizedBox(height: size.height*0.01,),
-        SizedBox(
+        Obx(() => SizedBox(
           width: double.infinity,
           child: OutlinedButton.icon(
-              icon: Image.asset(
-                MdImages.mdGoogle,
-                height: 27,
+            icon: controller.isgoogleLoading.value
+                ? SizedBox(
+              width: 20,
+              height: 20,
+              child: CircularProgressIndicator(
+                color: MdAppColors.mdPrimaryColor,
               ),
-              onPressed: () {},
-              label: const Text(
-                "Sign-in with Google",
-                style: TextStyle(color: Colors.black,
-                    fontFamily: "Roboto",
-                    fontSize: 18
-                ),
-              )),
-        ),
+            )
+                : Image.asset(
+              MdImages.mdGoogle,
+              height: 27,
+            ),
+            onPressed: controller.isgoogleLoading.value
+                ? null // Disable button when loading
+                : () {
+              controller.googleSingIn(context);
+            },
+            label: Text(
+              controller.isgoogleLoading.value ? "Signing in..." : "Sign-in with Google",
+              style: const TextStyle(
+                color: Colors.black,
+                fontFamily: "Roboto",
+                fontSize: 18,
+              ),
+            ),
+          ),
+        )),
         SizedBox(height: size.height*0.0001,),
         TextButton(
             style: TextButton.styleFrom(

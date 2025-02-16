@@ -33,4 +33,7 @@ static const mdfinder = "assets/images/finder.png";
 static const mdPerson = "assets/images/person.png";
 static const mdDocument = "assets/images/documents.png";
 
+//account verification
+static const mdMail = "assets/images/account_verification/mail.png";
+
 }

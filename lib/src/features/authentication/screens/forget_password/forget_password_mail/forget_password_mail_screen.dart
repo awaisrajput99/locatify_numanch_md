@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:locatify/src/common_widgets/form_header_widget.dart';
 import 'package:locatify/src/constants/image_strings.dart';
 import 'package:locatify/src/constants/sizes.dart';
+import 'package:locatify/src/features/authentication/controllers/mail_verification_controller.dart';
 
 class ForgetPasswordMailScreen extends StatelessWidget {
   const ForgetPasswordMailScreen({super.key});
